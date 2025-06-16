@@ -15,87 +15,96 @@
         
         body {
             font-family: 'Heebo', Arial, sans-serif;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #ff6b6b 0%, #feca57 30%, #48cae4 60%, #51cf66 100%);
             min-height: 100vh;
-            padding: 15px;
+            padding: 10px;
             direction: rtl;
+            animation: backgroundShift 10s ease-in-out infinite;
+        }
+        
+        @keyframes backgroundShift {
+            0%, 100% { background: linear-gradient(135deg, #ff6b6b 0%, #feca57 30%, #48cae4 60%, #51cf66 100%); }
+            50% { background: linear-gradient(135deg, #a8e6cf 0%, #ffd93d 30%, #6c5ce7 60%, #fd79a8 100%); }
         }
         
         .container {
             max-width: 1000px;
             margin: 0 auto;
             background: white;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            border-radius: 25px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.15);
             overflow: hidden;
+            border: 4px solid #ff6b6b;
         }
         
         .header {
-            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #fecfef 100%);
-            padding: 25px;
+            background: linear-gradient(135deg, #ff9ff3 0%, #f368e0 30%, #fab1a0 60%, #fdcb6e 100%);
+            padding: 15px;
             text-align: center;
             position: relative;
+            border-bottom: 4px solid #e84393;
         }
         
         .header::before {
-            content: '🌟';
+            content: '⭐';
             position: absolute;
-            top: 10px;
-            right: 20px;
+            top: 5px;
+            right: 15px;
             font-size: 24px;
-            animation: twinkle 2s infinite;
+            animation: sparkle 1.5s ease-in-out infinite;
         }
         
         .header::after {
-            content: '🌈';
+            content: '🎈';
             position: absolute;
-            top: 10px;
-            left: 20px;
+            top: 5px;
+            left: 15px;
             font-size: 24px;
-            animation: bounce 2s infinite;
+            animation: float 3s ease-in-out infinite;
         }
         
-        @keyframes twinkle {
-            0%, 100% { opacity: 1; transform: scale(1); }
-            50% { opacity: 0.7; transform: scale(1.1); }
+        @keyframes sparkle {
+            0%, 100% { transform: scale(1) rotate(0deg); opacity: 1; }
+            50% { transform: scale(1.3) rotate(180deg); opacity: 0.8; }
         }
         
-        @keyframes bounce {
+        @keyframes float {
             0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
+            50% { transform: translateY(-8px); }
         }
         
         .title-input {
-            font-size: 2.2em;
+            font-size: 1.8em;
             font-weight: 800;
-            color: #4a5568;
-            background: transparent;
-            border: 3px solid transparent;
-            border-radius: 10px;
-            padding: 10px 15px;
+            color: #2d3436;
+            background: rgba(255,255,255,0.9);
+            border: 3px solid #fd79a8;
+            border-radius: 15px;
+            padding: 8px 15px;
             text-align: center;
             font-family: 'Heebo', Arial, sans-serif;
             width: 100%;
-            max-width: 500px;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            max-width: 400px;
+            margin-bottom: 10px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
             transition: all 0.3s ease;
         }
         
         .title-input:focus {
             outline: none;
-            border-color: #667eea;
-            background: rgba(255,255,255,0.8);
+            border-color: #e84393;
+            transform: scale(1.02);
+            box-shadow: 0 5px 15px rgba(232, 67, 147, 0.3);
         }
         
         .day-input {
-            font-size: 1.5em;
-            color: #667eea;
+            font-size: 1.2em;
+            color: #2d3436;
             font-weight: 600;
-            background: transparent;
-            border: 2px solid #667eea;
-            border-radius: 10px;
-            padding: 8px 20px;
+            background: rgba(255,255,255,0.9);
+            border: 3px solid #00b894;
+            border-radius: 12px;
+            padding: 6px 15px;
             font-family: 'Heebo', Arial, sans-serif;
             text-align: center;
             transition: all 0.3s ease;
@@ -103,147 +112,159 @@
         
         .day-input:focus {
             outline: none;
-            background: rgba(255,255,255,0.9);
             transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 184, 148, 0.3);
         }
         
         .controls {
-            background: #f8f9fa;
-            padding: 20px;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+            padding: 15px;
             display: flex;
             gap: 15px;
             flex-wrap: wrap;
             justify-content: center;
             align-items: center;
+            border-bottom: 3px solid #00b894;
         }
         
         .settings-toggle {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
+            padding: 12px 20px;
+            border-radius: 20px;
             font-family: 'Heebo', Arial, sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 16px;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(108, 92, 231, 0.3);
         }
         
         .settings-toggle:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
         }
         
         .pdf-button {
-            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
             color: white;
             border: none;
-            padding: 12px 25px;
-            border-radius: 12px;
+            padding: 12px 20px;
+            border-radius: 20px;
             font-family: 'Heebo', Arial, sans-serif;
-            font-weight: 600;
+            font-weight: 700;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 16px;
+            font-size: 14px;
+            box-shadow: 0 4px 10px rgba(0, 184, 148, 0.3);
         }
         
         .pdf-button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 184, 148, 0.4);
         }
         
         .settings-panel {
-            background: #f8f9fa;
-            padding: 25px;
-            border-bottom: 2px solid #e2e8f0;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fab1a0 100%);
+            padding: 20px;
+            border-bottom: 3px solid #e17055;
             display: none;
         }
         
         .settings-section {
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         
         .settings-title {
-            font-size: 1.3em;
+            font-size: 1.2em;
             font-weight: 700;
-            color: #4a5568;
+            color: #2d3436;
             margin-bottom: 15px;
             text-align: center;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .children-management, .activities-management {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-            margin-bottom: 20px;
+            background: rgba(255,255,255,0.9);
+            padding: 15px;
+            border-radius: 15px;
+            margin-bottom: 15px;
+            border: 3px solid #fd79a8;
         }
         
         .child-item, .activity-item {
             display: flex;
             align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 8px;
+            gap: 8px;
+            margin-bottom: 8px;
+            padding: 8px;
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
+            border-radius: 10px;
+            border: 2px solid #e17055;
         }
         
         .child-input, .activity-input {
             flex: 1;
-            padding: 8px 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
+            padding: 6px 10px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             font-family: 'Heebo', Arial, sans-serif;
             font-weight: 600;
         }
         
         .gender-select, .emoji-select {
-            padding: 8px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
+            padding: 6px;
+            border: 2px solid #ddd;
+            border-radius: 8px;
             font-family: 'Heebo', Arial, sans-serif;
             font-weight: 600;
         }
         
         .btn {
-            padding: 8px 15px;
+            padding: 6px 12px;
             border: none;
-            border-radius: 6px;
+            border-radius: 8px;
             font-family: 'Heebo', Arial, sans-serif;
             font-weight: 600;
             cursor: pointer;
             transition: all 0.3s ease;
-            font-size: 14px;
+            font-size: 12px;
         }
         
         .btn-success {
-            background: #28a745;
+            background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
             color: white;
         }
         
         .btn-danger {
-            background: #dc3545;
+            background: linear-gradient(135deg, #e17055 0%, #fd79a8 100%);
             color: white;
         }
         
         .btn-move {
-            background: #007bff;
+            background: linear-gradient(135deg, #6c5ce7 0%, #a29bfe 100%);
             color: white;
         }
         
-        .btn:hover {
-            transform: translateY(-1px);
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        .btn:hover:not(:disabled) {
+            transform: translateY(-2px) scale(1.05);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        
+        .btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
         }
         
         .add-activity-form {
             display: flex;
-            gap: 10px;
-            margin-top: 15px;
-            padding: 15px;
-            background: #e9ecef;
-            border-radius: 8px;
+            gap: 8px;
+            margin-top: 10px;
+            padding: 10px;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+            border-radius: 10px;
+            border: 2px solid #00b894;
         }
         
         .time-toggle {
@@ -251,11 +272,16 @@
             align-items: center;
             gap: 10px;
             margin-bottom: 15px;
+            padding: 10px;
+            background: rgba(255,255,255,0.8);
+            border-radius: 10px;
+            border: 2px solid #fd79a8;
         }
         
         .time-toggle input[type="checkbox"] {
             width: 20px;
             height: 20px;
+            accent-color: #e84393;
         }
         
         /* טבלת הלוח */
@@ -266,59 +292,71 @@
         }
         
         .table-header {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+            background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
         }
         
         .header-cell {
-            padding: 20px 10px;
+            padding: 15px 8px;
             text-align: center;
             font-weight: 700;
-            font-size: 1em;
-            color: #4a5568;
-            border-bottom: 3px solid #e2e8f0;
-            border-left: 2px solid #e2e8f0;
+            font-size: 0.9em;
+            color: white;
+            border-bottom: 3px solid #0984e3;
+            border-left: 2px solid white;
             vertical-align: middle;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
         }
         
         .header-cell:first-child {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            background: linear-gradient(135deg, #fd79a8 0%, #e84393 100%);
             text-align: right;
-            padding-right: 20px;
-            min-width: 200px;
+            padding-right: 15px;
+            min-width: 180px;
         }
         
         .time-header {
-            min-width: 120px;
+            min-width: 100px;
+            background: linear-gradient(135deg, #00b894 0%, #55efc4 100%);
         }
         
         .activity-row {
-            border-bottom: 2px solid #f7fafc;
+            border-bottom: 2px solid #ddd;
+            transition: all 0.3s ease;
+        }
+        
+        .activity-row:nth-child(odd) {
+            background: linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%);
         }
         
         .activity-row:nth-child(even) {
-            background-color: #f8f9fa;
+            background: linear-gradient(135deg, #a8e6cf 0%, #dcedc1 100%);
+        }
+        
+        .activity-row:hover {
+            transform: scale(1.01);
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
         }
         
         .activity-cell {
-            padding: 15px 10px;
-            border-left: 2px solid #e2e8f0;
+            padding: 12px 8px;
+            border-left: 2px solid white;
             vertical-align: middle;
         }
         
         .activity-name-cell {
-            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             font-weight: 700;
-            font-size: 1em;
-            color: #2d3748;
+            font-size: 0.9em;
+            color: #2d3436;
             text-align: right;
-            padding-right: 20px;
+            padding-right: 15px;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
         }
         
         .time-cell {
             text-align: center;
             font-weight: 600;
-            color: #6b7280;
-            border-left: 2px solid #e2e8f0;
+            color: #2d3436;
+            font-size: 0.8em;
         }
         
         .checkbox-cell {
@@ -326,48 +364,80 @@
         }
         
         .checkbox {
-            width: 30px;
-            height: 30px;
-            border: 3px solid #cbd5e0;
-            border-radius: 6px;
+            width: 28px;
+            height: 28px;
+            border: 3px solid #fd79a8;
+            border-radius: 8px;
             background: white;
             display: inline-block;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        
+        .checkbox:hover {
+            transform: scale(1.1);
+            border-color: #e84393;
+            box-shadow: 0 3px 8px rgba(232, 67, 147, 0.3);
         }
         
         .footer {
-            background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-            padding: 20px;
+            background: linear-gradient(135deg, #fd79a8 0%, #fdcb6e 50%, #55efc4 100%);
+            padding: 15px;
             text-align: center;
-            color: #4a5568;
+            color: #2d3436;
+            font-weight: 700;
+            font-size: 1em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+            border-top: 3px solid #e84393;
+        }
+        
+        .emoji-decoration {
+            display: inline-block;
+            animation: bounce 2s infinite;
+            margin: 0 5px;
+        }
+        
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-5px); }
+            60% { transform: translateY(-3px); }
+        }
+        
+        .max-activities-warning {
+            background: linear-gradient(135deg, #ff7675 0%, #fd79a8 100%);
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            margin: 10px 0;
+            text-align: center;
             font-weight: 600;
-            font-size: 1.1em;
         }
         
         @media (max-width: 768px) {
             .title-input {
-                font-size: 1.8em;
+                font-size: 1.5em;
             }
             
             .day-input {
-                font-size: 1.3em;
+                font-size: 1.1em;
             }
             
             .child-item, .activity-item, .add-activity-form {
                 flex-direction: column;
-                gap: 10px;
+                gap: 8px;
             }
             
             .schedule-table {
-                font-size: 12px;
+                font-size: 11px;
             }
             
             .header-cell, .activity-cell {
-                padding: 8px 5px;
+                padding: 8px 4px;
             }
             
             .checkbox {
-                width: 25px;
-                height: 25px;
+                width: 24px;
+                height: 24px;
             }
         }
     </style>
@@ -388,7 +458,7 @@
         
         <div class="settings-panel" id="settingsPanel">
             <div class="settings-section">
-                <h3 class="settings-title">ניהול ילדים</h3>
+                <h3 class="settings-title">🧒 ניהול ילדים</h3>
                 <div class="children-management">
                     <div id="childrenManagement">
                         <!-- ילדים יתווספו כאן -->
@@ -398,7 +468,7 @@
             </div>
             
             <div class="settings-section">
-                <h3 class="settings-title">ניהול פעילויות</h3>
+                <h3 class="settings-title">📋 ניהול פעילויות</h3>
                 <div class="activities-management">
                     <div class="time-toggle">
                         <input type="checkbox" id="showTimes" onchange="toggleTimeColumn()">
@@ -406,6 +476,9 @@
                     </div>
                     <div id="activitiesManagement">
                         <!-- פעילויות יתווספו כאן -->
+                    </div>
+                    <div id="maxActivitiesWarning" class="max-activities-warning" style="display: none;">
+                        ⚠️ הגעת למקסימום 20 פעילויות!
                     </div>
                     <div class="add-activity-form">
                         <input type="text" id="newActivityInput" placeholder="שם הפעילות החדשה..." class="activity-input">
@@ -431,7 +504,7 @@
                             <option value="🌙">🌙 (לילה)</option>
                             <option value="⭐">⭐ (כללי)</option>
                         </select>
-                        <button class="btn btn-success" onclick="addNewActivity()">הוסף</button>
+                        <button class="btn btn-success" onclick="addNewActivity()" id="addActivityBtn">הוסף</button>
                     </div>
                 </div>
             </div>
@@ -450,19 +523,22 @@
         </table>
         
         <div class="footer">
-            <p>יום מלא בהנאה ושמחה! בהצלחה לכולם! 🌈✨</p>
+            <p>
+                <span class="emoji-decoration">🌈</span>
+                יום מלא בהנאה ושמחה! בהצלחה לכולם!
+                <span class="emoji-decoration">✨</span>
+            </p>
         </div>
     </div>
 
     <script>
-        // נתונים בסיסיים
+        // נתונים בסיסיים - התחלה עם 2 ילדים כדוגמא
         let children = [
-            { name: 'הילה', gender: '👧' },
-            { name: 'אסתי', gender: '👧' },
-            { name: 'דוד', gender: '👦' },
-            { name: 'ציקי', gender: '👦' }
+            { name: 'ילד 1', gender: '👧' },
+            { name: 'ילד 2', gender: '👦' }
         ];
         
+        // פעילויות ללא "משחק עם משי"
         let activities = [
             { name: 'נטילת ידיים 🫗', time: '7:00-7:05' },
             { name: 'תפילה 🙏', time: '7:05-7:20' },
@@ -473,19 +549,19 @@
             { name: 'פעילות יצירה 🎨', time: '10:00-11:00' },
             { name: 'משחק דיגיטלי 🎮', time: '11:00-12:00' },
             { name: 'ארוחת צוהריים 🍽️', time: '12:00-13:00' },
-            { name: 'משחק עם משי 🧸', time: '13:00-14:00' },
-            { name: 'משחק קופסה 🎲', time: '14:00-15:00' },
-            { name: 'יציאה לגינה 🌳', time: '15:00-16:00' },
-            { name: 'פעילות הפתעה 🎉', time: '16:00-17:00' },
-            { name: 'זמן קריאה 📚', time: '17:00-18:00' },
-            { name: 'זמן חופשי 🆓', time: '18:00-19:00' },
-            { name: 'מקלחת 🚿', time: '19:00-19:30' },
-            { name: 'ארוחת ערב 🍲', time: '19:30-20:30' },
-            { name: 'צחצוח שיניים 🦷', time: '20:30-20:40' },
-            { name: 'קריאת שמע על המיטה 🛏️', time: '20:40-20:50' },
-            { name: 'ספר לפני השינה 🌙', time: '20:50-21:30' }
+            { name: 'משחק קופסה 🎲', time: '13:00-14:00' },
+            { name: 'יציאה לגינה 🌳', time: '14:00-15:00' },
+            { name: 'פעילות הפתעה 🎉', time: '15:00-16:00' },
+            { name: 'זמן קריאה 📚', time: '16:00-17:00' },
+            { name: 'זמן חופשי 🆓', time: '17:00-18:00' },
+            { name: 'מקלחת 🚿', time: '18:00-18:30' },
+            { name: 'ארוחת ערב 🍲', time: '18:30-19:30' },
+            { name: 'צחצוח שיניים 🦷', time: '19:30-19:40' },
+            { name: 'קריאת שמע על המיטה 🛏️', time: '19:40-19:50' },
+            { name: 'ספר לפני השינה 🌙', time: '19:50-20:30' }
         ];
 
+        const MAX_ACTIVITIES = 20;
         let showTimeColumn = false;
 
         // פתיחה/סגירה של הגדרות
@@ -498,6 +574,22 @@
         function toggleTimeColumn() {
             showTimeColumn = document.getElementById('showTimes').checked;
             renderSchedule();
+        }
+
+        // בדיקת מקסימום פעילויות
+        function checkMaxActivities() {
+            const warning = document.getElementById('maxActivitiesWarning');
+            const addBtn = document.getElementById('addActivityBtn');
+            
+            if (activities.length >= MAX_ACTIVITIES) {
+                warning.style.display = 'block';
+                addBtn.disabled = true;
+                addBtn.textContent = 'מקסימום פעילויות';
+            } else {
+                warning.style.display = 'none';
+                addBtn.disabled = false;
+                addBtn.textContent = 'הוסף';
+            }
         }
 
         // יצירת תצוגת ילדים בהגדרות
@@ -519,32 +611,45 @@
                     <button class="btn btn-danger" onclick="removeChild(${index})" ${children.length <= 1 ? 'disabled' : ''}>🗑️</button>
                 `;
                 container.appendChild(childDiv);
-            });
+        </script>
+</body>
+</html>
         }
 
         // יצירת תצוגת פעילויות בהגדרות
         function renderActivitiesSettings() {
             const container = document.getElementById('activitiesManagement');
             const existingTimeToggle = container.querySelector('.time-toggle');
+            const existingWarning = container.querySelector('.max-activities-warning');
+            const existingForm = container.querySelector('.add-activity-form');
+            
+            // שמירה של האלמנטים הקבועים
+            const timeToggle = existingTimeToggle;
+            const warning = existingWarning;
+            const form = existingForm;
+            
             container.innerHTML = '';
             
-            // שמירה של ה-time toggle
-            if (existingTimeToggle) {
-                container.appendChild(existingTimeToggle);
-            }
+            // החזרת האלמנטים הקבועים
+            if (timeToggle) container.appendChild(timeToggle);
             
             activities.forEach((activity, index) => {
                 const activityDiv = document.createElement('div');
                 activityDiv.className = 'activity-item';
                 activityDiv.innerHTML = `
                     <input type="text" class="activity-input" value="${activity.name}" onchange="updateActivityName(${index}, this.value)">
-                    <input type="text" class="activity-input" value="${activity.time || ''}" placeholder="זמן (אופציונלי)" onchange="updateActivityTime(${index}, this.value)" style="max-width: 120px;">
+                    <input type="text" class="activity-input" value="${activity.time || ''}" placeholder="זמן (אופציונלי)" onchange="updateActivityTime(${index}, this.value)" style="max-width: 100px;">
                     <button class="btn btn-move" onclick="moveActivity(${index}, -1)" ${index === 0 ? 'disabled' : ''}>↑</button>
                     <button class="btn btn-move" onclick="moveActivity(${index}, 1)" ${index === activities.length - 1 ? 'disabled' : ''}>↓</button>
                     <button class="btn btn-danger" onclick="removeActivity(${index})" ${activities.length <= 1 ? 'disabled' : ''}>🗑️</button>
                 `;
                 container.appendChild(activityDiv);
             });
+            
+            if (warning) container.appendChild(warning);
+            if (form) container.appendChild(form);
+            
+            checkMaxActivities();
         }
 
         // יצירת תצוגת הלוח
@@ -648,6 +753,11 @@
 
         // פונקציות ניהול פעילויות
         function addNewActivity() {
+            if (activities.length >= MAX_ACTIVITIES) {
+                alert('הגעת למקסימום 20 פעילויות!');
+                return;
+            }
+            
             const nameInput = document.getElementById('newActivityInput');
             const emojiSelect = document.getElementById('newActivityEmoji');
             
@@ -699,6 +809,9 @@
                 const controls = document.querySelector('.controls');
                 const settingsPanel = document.getElementById('settingsPanel');
                 
+                const controlsDisplay = controls.style.display;
+                const panelDisplay = settingsPanel.style.display;
+                
                 controls.style.display = 'none';
                 settingsPanel.style.display = 'none';
                 
@@ -719,7 +832,26 @@
                 const imgWidth = 190;
                 const imgHeight = (canvas.height * imgWidth) / canvas.width;
                 
-                pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                // אם התמונה גבוהה מדי, נחלק לעמודים
+                if (imgHeight <= 277) {
+                    pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                } else {
+                    let position = 0;
+                    const pageHeight = 277;
+                    
+                    while (position < imgHeight) {
+                        const remainingHeight = imgHeight - position;
+                        const currentHeight = remainingHeight > pageHeight ? pageHeight : remainingHeight;
+                        
+                        pdf.addImage(imgData, 'PNG', 10, 10 - position, imgWidth, imgHeight);
+                        
+                        position += pageHeight;
+                        
+                        if (position < imgHeight) {
+                            pdf.addPage();
+                        }
+                    }
+                }
                 
                 // שמירת הקובץ
                 const title = document.getElementById('titleInput').value || 'לוח פעילות יומי';
@@ -727,7 +859,8 @@
                 pdf.save(`${title} - ${day}.pdf`);
                 
                 // החזרת התצוגה
-                controls.style.display = 'flex';
+                controls.style.display = controlsDisplay;
+                settingsPanel.style.display = panelDisplay;
                 
             } catch (error) {
                 console.error('שגיאה בייצוא ל-PDF:', error);
@@ -741,6 +874,3 @@
             renderActivitiesSettings();
             renderSchedule();
         });
-    </script>
-</body>
-</html>
