@@ -22,7 +22,7 @@
         }
         
         .container {
-            max-width: 900px;
+            max-width: 1000px;
             margin: 0 auto;
             background: white;
             border-radius: 20px;
@@ -107,6 +107,16 @@
             transform: scale(1.05);
         }
         
+        .controls {
+            background: #f8f9fa;
+            padding: 20px;
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+        }
+        
         .settings-toggle {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -118,11 +128,27 @@
             cursor: pointer;
             transition: all 0.3s ease;
             font-size: 16px;
-            margin: 15px auto;
-            display: block;
         }
         
         .settings-toggle:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+        
+        .pdf-button {
+            background: linear-gradient(135deg, #28a745 0%, #20c997 100%);
+            color: white;
+            border: none;
+            padding: 12px 25px;
+            border-radius: 12px;
+            font-family: 'Heebo', Arial, sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 16px;
+        }
+        
+        .pdf-button:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 16px rgba(0,0,0,0.2);
         }
@@ -146,14 +172,14 @@
             text-align: center;
         }
         
-        .children-management {
+        .children-management, .activities-management {
             background: white;
             padding: 20px;
             border-radius: 12px;
             margin-bottom: 20px;
         }
         
-        .child-item {
+        .child-item, .activity-item {
             display: flex;
             align-items: center;
             gap: 10px;
@@ -163,7 +189,7 @@
             border-radius: 8px;
         }
         
-        .child-input {
+        .child-input, .activity-input {
             flex: 1;
             padding: 8px 12px;
             border: 2px solid #e2e8f0;
@@ -172,7 +198,7 @@
             font-weight: 600;
         }
         
-        .gender-select {
+        .gender-select, .emoji-select {
             padding: 8px;
             border: 2px solid #e2e8f0;
             border-radius: 6px;
@@ -201,42 +227,14 @@
             color: white;
         }
         
+        .btn-move {
+            background: #007bff;
+            color: white;
+        }
+        
         .btn:hover {
             transform: translateY(-1px);
             box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        }
-        
-        .activities-management {
-            background: white;
-            padding: 20px;
-            border-radius: 12px;
-        }
-        
-        .activity-item {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            margin-bottom: 10px;
-            padding: 10px;
-            background: #f0f0f0;
-            border-radius: 8px;
-        }
-        
-        .activity-input {
-            flex: 1;
-            padding: 8px 12px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
-            font-family: 'Heebo', Arial, sans-serif;
-            font-weight: 600;
-        }
-        
-        .emoji-select {
-            padding: 8px;
-            border: 2px solid #e2e8f0;
-            border-radius: 6px;
-            font-family: 'Heebo', Arial, sans-serif;
-            font-size: 16px;
         }
         
         .add-activity-form {
@@ -246,6 +244,18 @@
             padding: 15px;
             background: #e9ecef;
             border-radius: 8px;
+        }
+        
+        .time-toggle {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        
+        .time-toggle input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
         }
         
         /* טבלת הלוח */
@@ -260,20 +270,25 @@
         }
         
         .header-cell {
-            padding: 20px 15px;
+            padding: 20px 10px;
             text-align: center;
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1em;
             color: #4a5568;
             border-bottom: 3px solid #e2e8f0;
             border-left: 2px solid #e2e8f0;
+            vertical-align: middle;
         }
         
         .header-cell:first-child {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             text-align: right;
-            padding-right: 25px;
-            min-width: 250px;
+            padding-right: 20px;
+            min-width: 200px;
+        }
+        
+        .time-header {
+            min-width: 120px;
         }
         
         .activity-row {
@@ -285,29 +300,36 @@
         }
         
         .activity-cell {
-            padding: 18px 15px;
+            padding: 15px 10px;
             border-left: 2px solid #e2e8f0;
+            vertical-align: middle;
         }
         
         .activity-name-cell {
             background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
             font-weight: 700;
-            font-size: 1.1em;
+            font-size: 1em;
             color: #2d3748;
             text-align: right;
-            padding-right: 25px;
+            padding-right: 20px;
+        }
+        
+        .time-cell {
+            text-align: center;
+            font-weight: 600;
+            color: #6b7280;
+            border-left: 2px solid #e2e8f0;
         }
         
         .checkbox-cell {
             text-align: center;
-            vertical-align: middle;
         }
         
         .checkbox {
-            width: 35px;
-            height: 35px;
+            width: 30px;
+            height: 30px;
             border: 3px solid #cbd5e0;
-            border-radius: 8px;
+            border-radius: 6px;
             background: white;
             display: inline-block;
         }
@@ -319,58 +341,6 @@
             color: #4a5568;
             font-weight: 600;
             font-size: 1.1em;
-        }
-        
-        .print-button {
-            position: fixed;
-            top: 20px;
-            left: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            border: none;
-            padding: 15px 25px;
-            border-radius: 50px;
-            font-family: 'Heebo', Arial, sans-serif;
-            font-weight: 700;
-            cursor: pointer;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
-            transition: all 0.3s ease;
-            z-index: 1000;
-            font-size: 16px;
-        }
-        
-        .print-button:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(0,0,0,0.3);
-        }
-        
-        @media print {
-            body {
-                background: white !important;
-                padding: 0 !important;
-            }
-            
-            .container {
-                box-shadow: none !important;
-                border-radius: 0 !important;
-                max-width: none !important;
-            }
-            
-            .settings-toggle, .settings-panel, .print-button {
-                display: none !important;
-            }
-            
-            .header {
-                background: #f0f0f0 !important;
-            }
-            
-            .table-header {
-                background: #f5f5f5 !important;
-            }
-            
-            .footer {
-                background: #f5f5f5 !important;
-            }
         }
         
         @media (max-width: 768px) {
@@ -388,28 +358,32 @@
             }
             
             .schedule-table {
-                font-size: 14px;
+                font-size: 12px;
             }
             
             .header-cell, .activity-cell {
-                padding: 12px 8px;
+                padding: 8px 5px;
             }
             
             .checkbox {
-                width: 30px;
-                height: 30px;
+                width: 25px;
+                height: 25px;
             }
         }
     </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 </head>
 <body>
-    <button class="print-button" onclick="window.print()">🖨️ הדפסה</button>
-    
     <div class="container">
         <div class="header">
             <input type="text" class="title-input" id="titleInput" value="לוח פעילות יומי" placeholder="כותרת הלוח">
             <input type="text" class="day-input" id="dayInput" value="יום שני" placeholder="יום">
+        </div>
+        
+        <div class="controls">
             <button class="settings-toggle" onclick="toggleSettings()">⚙️ הגדרות</button>
+            <button class="pdf-button" onclick="exportToPDF()">📄 ייצא ל-PDF</button>
         </div>
         
         <div class="settings-panel" id="settingsPanel">
@@ -426,6 +400,10 @@
             <div class="settings-section">
                 <h3 class="settings-title">ניהול פעילויות</h3>
                 <div class="activities-management">
+                    <div class="time-toggle">
+                        <input type="checkbox" id="showTimes" onchange="toggleTimeColumn()">
+                        <label for="showTimes">הצג עמודת זמנים</label>
+                    </div>
                     <div id="activitiesManagement">
                         <!-- פעילויות יתווספו כאן -->
                     </div>
@@ -463,7 +441,7 @@
             <thead class="table-header">
                 <tr id="headerRow">
                     <th class="header-cell">פעילות</th>
-                    <!-- כותרות ילדים יתווספו כאן -->
+                    <!-- כותרות יתווספו כאן -->
                 </tr>
             </thead>
             <tbody id="tableBody">
@@ -486,32 +464,40 @@
         ];
         
         let activities = [
-            'נטילת ידיים 🫗',
-            'תפילה 🙏',
-            'פרק תהילים 📖',
-            'ארוחת בוקר 🥞',
-            'פעילות בית ספר 📚',
-            'הפסקה (30 דקות) ⏰',
-            'פעילות יצירה 🎨',
-            'משחק דיגיטלי 🎮',
-            'ארוחת צוהריים 🍽️',
-            'משחק עם משי 🧸',
-            'משחק קופסה 🎲',
-            'יציאה לגינה 🌳',
-            'פעילות הפתעה 🎉',
-            'זמן קריאה 📚',
-            'זמן חופשי 🆓',
-            'מקלחת 🚿',
-            'ארוחת ערב 🍲',
-            'צחצוח שיניים 🦷',
-            'קריאת שמע על המיטה 🛏️',
-            'ספר לפני השינה 🌙'
+            { name: 'נטילת ידיים 🫗', time: '7:00-7:05' },
+            { name: 'תפילה 🙏', time: '7:05-7:20' },
+            { name: 'פרק תהילים 📖', time: '7:20-7:30' },
+            { name: 'ארוחת בוקר 🥞', time: '7:30-8:00' },
+            { name: 'פעילות בית ספר 📚', time: '8:00-9:30' },
+            { name: 'הפסקה (30 דקות) ⏰', time: '9:30-10:00' },
+            { name: 'פעילות יצירה 🎨', time: '10:00-11:00' },
+            { name: 'משחק דיגיטלי 🎮', time: '11:00-12:00' },
+            { name: 'ארוחת צוהריים 🍽️', time: '12:00-13:00' },
+            { name: 'משחק עם משי 🧸', time: '13:00-14:00' },
+            { name: 'משחק קופסה 🎲', time: '14:00-15:00' },
+            { name: 'יציאה לגינה 🌳', time: '15:00-16:00' },
+            { name: 'פעילות הפתעה 🎉', time: '16:00-17:00' },
+            { name: 'זמן קריאה 📚', time: '17:00-18:00' },
+            { name: 'זמן חופשי 🆓', time: '18:00-19:00' },
+            { name: 'מקלחת 🚿', time: '19:00-19:30' },
+            { name: 'ארוחת ערב 🍲', time: '19:30-20:30' },
+            { name: 'צחצוח שיניים 🦷', time: '20:30-20:40' },
+            { name: 'קריאת שמע על המיטה 🛏️', time: '20:40-20:50' },
+            { name: 'ספר לפני השינה 🌙', time: '20:50-21:30' }
         ];
+
+        let showTimeColumn = false;
 
         // פתיחה/סגירה של הגדרות
         function toggleSettings() {
             const panel = document.getElementById('settingsPanel');
             panel.style.display = panel.style.display === 'block' ? 'none' : 'block';
+        }
+
+        // הצגה/הסתרה של עמודת זמנים
+        function toggleTimeColumn() {
+            showTimeColumn = document.getElementById('showTimes').checked;
+            renderSchedule();
         }
 
         // יצירת תצוגת ילדים בהגדרות
@@ -528,7 +514,9 @@
                         <option value="👧" ${child.gender === '👧' ? 'selected' : ''}>בת</option>
                         <option value="👦" ${child.gender === '👦' ? 'selected' : ''}>בן</option>
                     </select>
-                    <button class="btn btn-danger" onclick="removeChild(${index})">🗑️</button>
+                    <button class="btn btn-move" onclick="moveChild(${index}, -1)" ${index === 0 ? 'disabled' : ''}>↑</button>
+                    <button class="btn btn-move" onclick="moveChild(${index}, 1)" ${index === children.length - 1 ? 'disabled' : ''}>↓</button>
+                    <button class="btn btn-danger" onclick="removeChild(${index})" ${children.length <= 1 ? 'disabled' : ''}>🗑️</button>
                 `;
                 container.appendChild(childDiv);
             });
@@ -537,14 +525,23 @@
         // יצירת תצוגת פעילויות בהגדרות
         function renderActivitiesSettings() {
             const container = document.getElementById('activitiesManagement');
+            const existingTimeToggle = container.querySelector('.time-toggle');
             container.innerHTML = '';
+            
+            // שמירה של ה-time toggle
+            if (existingTimeToggle) {
+                container.appendChild(existingTimeToggle);
+            }
             
             activities.forEach((activity, index) => {
                 const activityDiv = document.createElement('div');
                 activityDiv.className = 'activity-item';
                 activityDiv.innerHTML = `
-                    <input type="text" class="activity-input" value="${activity}" onchange="updateActivity(${index}, this.value)">
-                    <button class="btn btn-danger" onclick="removeActivity(${index})">🗑️</button>
+                    <input type="text" class="activity-input" value="${activity.name}" onchange="updateActivityName(${index}, this.value)">
+                    <input type="text" class="activity-input" value="${activity.time || ''}" placeholder="זמן (אופציונלי)" onchange="updateActivityTime(${index}, this.value)" style="max-width: 120px;">
+                    <button class="btn btn-move" onclick="moveActivity(${index}, -1)" ${index === 0 ? 'disabled' : ''}>↑</button>
+                    <button class="btn btn-move" onclick="moveActivity(${index}, 1)" ${index === activities.length - 1 ? 'disabled' : ''}>↓</button>
+                    <button class="btn btn-danger" onclick="removeActivity(${index})" ${activities.length <= 1 ? 'disabled' : ''}>🗑️</button>
                 `;
                 container.appendChild(activityDiv);
             });
@@ -557,6 +554,14 @@
             // שמירה על התא הראשון (פעילות) ומחיקת השאר
             while (headerRow.children.length > 1) {
                 headerRow.removeChild(headerRow.lastChild);
+            }
+            
+            // הוספת עמודת זמנים אם מופעלת
+            if (showTimeColumn) {
+                const timeHeader = document.createElement('th');
+                timeHeader.className = 'header-cell time-header';
+                timeHeader.textContent = 'זמן';
+                headerRow.appendChild(timeHeader);
             }
             
             // הוספת כותרות ילדים
@@ -578,8 +583,16 @@
                 // תא שם הפעילות
                 const activityCell = document.createElement('td');
                 activityCell.className = 'activity-name-cell';
-                activityCell.textContent = activity;
+                activityCell.textContent = activity.name;
                 row.appendChild(activityCell);
+                
+                // תא זמן אם מופעל
+                if (showTimeColumn) {
+                    const timeCell = document.createElement('td');
+                    timeCell.className = 'time-cell';
+                    timeCell.textContent = activity.time || '';
+                    row.appendChild(timeCell);
+                }
                 
                 // תאי ריבועי סימון לכל ילד
                 children.forEach(() => {
@@ -614,6 +627,15 @@
             renderSchedule();
         }
 
+        function moveChild(index, direction) {
+            const newIndex = index + direction;
+            if (newIndex >= 0 && newIndex < children.length) {
+                [children[index], children[newIndex]] = [children[newIndex], children[index]];
+                renderChildrenSettings();
+                renderSchedule();
+            }
+        }
+
         function updateChildName(index, name) {
             children[index].name = name;
             renderSchedule();
@@ -630,7 +652,10 @@
             const emojiSelect = document.getElementById('newActivityEmoji');
             
             if (nameInput.value.trim()) {
-                const newActivity = nameInput.value.trim() + ' ' + emojiSelect.value;
+                const newActivity = {
+                    name: nameInput.value.trim() + ' ' + emojiSelect.value,
+                    time: ''
+                };
                 activities.push(newActivity);
                 nameInput.value = '';
                 renderActivitiesSettings();
@@ -648,9 +673,66 @@
             renderSchedule();
         }
 
-        function updateActivity(index, activity) {
-            activities[index] = activity;
+        function moveActivity(index, direction) {
+            const newIndex = index + direction;
+            if (newIndex >= 0 && newIndex < activities.length) {
+                [activities[index], activities[newIndex]] = [activities[newIndex], activities[index]];
+                renderActivitiesSettings();
+                renderSchedule();
+            }
+        }
+
+        function updateActivityName(index, name) {
+            activities[index].name = name;
             renderSchedule();
+        }
+
+        function updateActivityTime(index, time) {
+            activities[index].time = time;
+            renderSchedule();
+        }
+
+        // ייצוא ל-PDF
+        async function exportToPDF() {
+            try {
+                // הסתרת כפתורי הגדרות זמנית
+                const controls = document.querySelector('.controls');
+                const settingsPanel = document.getElementById('settingsPanel');
+                
+                controls.style.display = 'none';
+                settingsPanel.style.display = 'none';
+                
+                // יצירת canvas מהטבלה
+                const element = document.querySelector('.container');
+                const canvas = await html2canvas(element, {
+                    scale: 2,
+                    useCORS: true,
+                    allowTaint: true,
+                    backgroundColor: '#ffffff'
+                });
+                
+                // יצירת PDF
+                const { jsPDF } = window.jspdf;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 190;
+                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                
+                pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
+                
+                // שמירת הקובץ
+                const title = document.getElementById('titleInput').value || 'לוח פעילות יומי';
+                const day = document.getElementById('dayInput').value || 'יום';
+                pdf.save(`${title} - ${day}.pdf`);
+                
+                // החזרת התצוגה
+                controls.style.display = 'flex';
+                
+            } catch (error) {
+                console.error('שגיאה בייצוא ל-PDF:', error);
+                alert('אירעה שגיאה בייצוא ל-PDF. אנא נסה שנית.');
+            }
         }
 
         // אתחול הדף
