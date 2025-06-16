@@ -611,9 +611,7 @@
                     <button class="btn btn-danger" onclick="removeChild(${index})" ${children.length <= 1 ? 'disabled' : ''}>🗑️</button>
                 `;
                 container.appendChild(childDiv);
-        </script>
-</body>
-</html>
+            });
         }
 
         // יצירת תצוגת פעילויות בהגדרות
@@ -803,78 +801,6 @@
         }
 
         // ייצוא ל-PDF
-        async function exportToPDF() {
-            try {
-                // הסתרת כפתורי הגדרות זמנית
-                const controls = document.querySelector('.controls');
-                const settingsPanel = document.getElementById('settingsPanel');
-                
-                const controlsDisplay = controls.style.display;
-                const panelDisplay = settingsPanel.style.display;
-                
-                controls.style.display = 'none';
-                settingsPanel.style.display = 'none';
-                
-                // יצירת canvas מהטבלה
-                const element = document.querySelector('.container');
-                const canvas = await html2canvas(element, {
-                    scale: 2,
-                    useCORS: true,
-                    allowTaint: true,
-                    backgroundColor: '#ffffff'
-                });
-                
-                // יצירת PDF
-                const { jsPDF } = window.jspdf;
-                const pdf = new jsPDF('p', 'mm', 'a4');
-                
-                const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 190;
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
-                
-                // אם התמונה גבוהה מדי, נחלק לעמודים
-                if (imgHeight <= 277) {
-                    pdf.addImage(imgData, 'PNG', 10, 10, imgWidth, imgHeight);
-                } else {
-                    let position = 0;
-                    const pageHeight = 277;
-                    
-                    while (position < imgHeight) {
-                        const remainingHeight = imgHeight - position;
-                        const currentHeight = remainingHeight > pageHeight ? pageHeight : remainingHeight;
-                        
-                        pdf.addImage(imgData, 'PNG', 10, 10 - position, imgWidth, imgHeight);
-                        
-                        position += pageHeight;
-                        
-                        if (position < imgHeight) {
-                            pdf.addPage();
-                        }
-                    }
-                }
-                
-                // שמירת הקובץ
-                const title = document.getElementById('titleInput').value || 'לוח פעילות יומי';
-                const day = document.getElementById('dayInput').value || 'יום';
-                pdf.save(`${title} - ${day}.pdf`);
-                
-                // החזרת התצוגה
-                controls.style.display = controlsDisplay;
-                settingsPanel.style.display = panelDisplay;
-                
-            } catch (error) {
-                console.error('שגיאה בייצוא ל-PDF:', error);
-                alert('אירעה שגיאה בייצוא ל-PDF. אנא נסה שנית.');
-            }
-        }
-
-        // אתחול הדף
-        document.addEventListener('DOMContentLoaded', function() {
-            renderChildrenSettings();
-            renderActivitiesSettings();
-            renderSchedule();
-        });
-                            // ייצוא ל-PDF
         async function exportToPDF() {
             try {
                 // הסתרת כפתורי הגדרות זמנית
